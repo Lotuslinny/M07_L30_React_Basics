@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// Given a stateless functional component, add state to it
+// state should have a property called `isLoggedIn` which is a boolean
+// (true if logged in, false if not)
+// Then, give your best shot at rendering the word "in" if the user is logged in
+// or "out" if the user is logged out.
+
+class App extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      isLoggedIn: true
+    }
+  }
+
+  render() {
+    let wordDisplay
+    if (this.state.isLoggedIn === true) {
+      wordDisplay = "in"
+    } else {
+      wordDisplay = "out"
+    }
+    return (
+      <div>
+        <h1>You are currently logged {wordDisplay}</h1>
+      </div>
+    )
+  }
 }
 
-export default App;
+export default App
+
